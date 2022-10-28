@@ -14,13 +14,10 @@ public class ListGenerator:IValueGenerator
         var listObject = (IList)Activator.CreateInstance(typeToGenerate);
 
         var length = context.Random.Next(10);
-            
-      
-            
-
+        
         for (int i = 0; i < length; i++)
         {
-           //TODO add element to list list 
+            listObject.Add(context.Faker.Create(genericTypeArgument));
         }
 
         return listObject;

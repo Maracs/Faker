@@ -5,13 +5,13 @@ public class DateTimeGenerator:IValueGenerator
     public object Generate(Type typeToGenerate, GeneratorContext context)
     {
 
-        int year = context.Random.Next();
+        int year = context.Random.Next(1,3000);
         
         int month = context.Random.Next(1,13);
 
         int day = context.Random.Next(1, DateTime.DaysInMonth(year, month)+1);
-        
-        return   new DateTime(year,month,day);
+        var ret = new DateTime(year, month, day);
+        return   ret;
         
     }
 
@@ -19,4 +19,5 @@ public class DateTimeGenerator:IValueGenerator
     {
         return type == typeof(DateTime);
     }
+    
 }
